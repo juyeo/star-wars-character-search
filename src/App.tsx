@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CharacterSearchPanel from './components/character-search-panel/character-search-panel';
+import CharacterDetailPanel from './components/character-detail-panel/character-detail-panel';
+class App extends React.Component {
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render () {
+    return (
+        <div className="app-container">
+          <div className="banner">
+            <section>
+              <h1>Star Wars Character Search</h1>
+            </section>
+          </div>
+          <CharacterSearchPanel />
+          <CharacterDetailPanel />
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,22 +1,101 @@
-.App {
-  text-align: center;
+/* Grid container for page */
+.app-container {
+  display: grid;
+  grid-template-columns: 67% 33%;
+  grid-template-rows: 10% 90%;
+  align-items: stretch;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
+/* Banner */
+.banner {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  align-items: center;
+  background: #1d3342;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.banner h1 {
+  font-size: 2em;
+  padding: 10px;
+  color: #ffffff;
+}
+
+/* Character search panel */
+.character-search-panel {
+  background-color: #ffffff;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.character-search-content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0.5em;
 }
 
-.App-link {
-  color: #09d3ac;
+.character-search-info {
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+
+.character-btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 0;
+  border: solid 1px transparent;
+  padding: 0.5em 1em;
+  color: #FFFFFF;
+  background-color: #396380;
+  min-width: 200px;
+  font-size: 1em; /* i'M inTo tHe MAiNFramE */
+}
+
+/* inverse colors on hover */
+.character-btn:hover {
+  color: #396380;
+  border-color: currentColor;
+  background-color: white;
+}
+
+/* Character detail panel */
+.character-detail-panel {
+  background-color: #b4ccdd;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding: 1em;
+}
+
+.character-detail-panel h1 {
+  padding-top: 0em;
+}
+
+.characteristic-name {
+  font-weight: 600;
+}
+
+.characteristic-info {
+  text-transform: capitalize; 
+  padding: 10px;
+}
+
+/* Universal styling */
+h1 {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.2em;
+}
+
+input {
+  font-size: 1em;
+  min-width: 200px;
+  min-height: 30px;
 }
