@@ -20,7 +20,7 @@
 
 .banner h1 {
   font-size: 2em;
-  padding: 10px;
+  padding: 1em;
   color: #ffffff;
 }
 
@@ -72,11 +72,15 @@
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  padding: 1em;
+  padding: 2em;
 }
 
 .character-detail-panel h1 {
-  padding-top: 0em;
+  margin-top: 0em;
+}
+
+.characteristic-container {
+  padding-bottom: 0.2em;
 }
 
 .characteristic-name {
@@ -85,7 +89,7 @@
 
 .characteristic-info {
   text-transform: capitalize; 
-  padding: 10px;
+  padding: 15px;
 }
 
 /* Universal styling */
