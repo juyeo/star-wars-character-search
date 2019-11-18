@@ -6,7 +6,6 @@ import { StoreModel, StarWarsCharacter } from '../../models';
 import CharacterButton from "./character-button";
 import PulseLoader from 'react-spinners/PulseLoader';
 
-
 const mapStateToProps = function(state : StoreModel) {
   return state;
 }
@@ -16,9 +15,10 @@ class CharacterSearchPanel extends React.Component<any> {
   }
 
   render () {
-    const characterButtons: JSX.Element[] = this.props.characters.map((character: StarWarsCharacter) => {
-      return ( <CharacterButton character={character}/>);  
-    });
+    const characterButtons: JSX.Element[] = this.props.characters.length > 0 ? 
+      this.props.characters.map((character: StarWarsCharacter) => { 
+        return ( <CharacterButton character={character}/>);  
+      }) : <div>No characters found</div>;
 
     const spinner = <div>
       <PulseLoader
