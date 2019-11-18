@@ -1,20 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { StoreModel} from '../../models';
-import { setSelectedCharacter } from '../../actions/character-actions';
+import React from "react";
+import { connect } from "react-redux";
+import { StoreModel } from "../../models";
+import { setSelectedCharacter } from "../../actions/character-actions";
 
-const mapStateToProps = function(state : StoreModel) {
-    return state;
-}
+const mapStateToProps = function(state: StoreModel) {
+  return state;
+};
 
 class CharacterButton extends React.Component<any> {
-    render () {
-        return (
-            <button className="character-btn" onClick={() => this.props.dispatch(setSelectedCharacter(this.props.character))}>
-                { this.props.character.name }
-            </button>
-        );
-    }
+  render() {
+    return (
+      <button
+        className="character-btn"
+        onClick={() =>
+          this.props.dispatch(setSelectedCharacter(this.props.character))
+        }
+      >
+        {this.props.character.name}
+      </button>
+    );
+  }
 }
 
-export default  connect(mapStateToProps)(CharacterButton);;
+export default connect(mapStateToProps)(CharacterButton);

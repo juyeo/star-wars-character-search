@@ -52,7 +52,7 @@
   margin: 2px 0;
   border: solid 1px transparent;
   padding: 0.5em 1em;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #396380;
   min-width: 200px;
   font-size: 1em; /* i'M inTo tHe MAiNFramE */
@@ -88,13 +88,13 @@
 }
 
 .characteristic-info {
-  text-transform: capitalize; 
+  text-transform: capitalize;
   padding: 15px;
 }
 
 /* Universal styling */
 h1 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   letter-spacing: 0.2em;
 }
 
