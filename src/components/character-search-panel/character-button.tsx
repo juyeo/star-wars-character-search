@@ -1,20 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import { StoreModel } from "../../models";
+import { StarWarsCharacter } from "../../models";
 import { setSelectedCharacter } from "../../actions/character-actions";
 
-const mapStateToProps = function(state: StoreModel) {
-  return state;
+const mapDispatchToProps = {
+  setSelectedCharacter
 };
 
-class CharacterButton extends React.Component<any> {
+interface ICharacterButtonProps {
+  character: StarWarsCharacter;
+}
+
+type Props = typeof mapDispatchToProps & ICharacterButtonProps;
+class CharacterButton extends React.Component<Props> {
   render() {
     return (
       <button
         className="character-btn"
-        onClick={() =>
-          this.props.dispatch(setSelectedCharacter(this.props.character))
-        }
+        onClick={() => this.props.setSelectedCharacter(this.props.character)}
       >
         {this.props.character.name}
       </button>
@@ -22,4 +25,4 @@ class CharacterButton extends React.Component<any> {
   }
 }
 
-export default connect(mapStateToProps)(CharacterButton);
+export default connect(null, mapDispatchToProps)(CharacterButton);
