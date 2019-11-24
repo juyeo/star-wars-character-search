@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, MapDispatchToProps } from "react-redux";
+import { connect } from "react-redux";
 import { getCharacters } from "../../actions/character-actions";
 import "../../App.css";
 import { StoreModel, StarWarsCharacter } from "../../models";
@@ -13,11 +13,10 @@ const mapStateToProps = function(state: StoreModel) {
 const mapDispatchToProps = {
   getCharacters
 };
-type Props = typeof mapStateToProps & typeof mapDispatchToProps;
 
 class CharacterSearchPanel extends React.Component<any> {
   componentDidMount() {
-    this.props.dispatch(getCharacters());
+    this.props.getCharacters();
   }
 
   render() {
@@ -54,9 +53,7 @@ class CharacterSearchPanel extends React.Component<any> {
           <div>
             <input
               type="text"
-              onChange={event =>
-                this.props.dispatch(getCharacters(event.target.value))
-              }
+              onChange={event => this.props.getCharacters(event.target.value)}
             />
           </div>
 
@@ -68,4 +65,7 @@ class CharacterSearchPanel extends React.Component<any> {
   }
 }
 
-export default connect(mapStateToProps)(CharacterSearchPanel);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CharacterSearchPanel);

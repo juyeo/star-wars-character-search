@@ -9,11 +9,13 @@ const mapStateToProps = function(state: StoreModel) {
   }
 };
 
-interface CharacterDetailProps {
+interface ICharacterDetailProps {
   selectedCharacter: StarWarsCharacter;
 }
 
-class CharacterDetailPanel extends React.Component<CharacterDetailProps> {
+type Props = typeof mapStateToProps;
+
+class CharacterDetailPanel extends React.Component<ICharacterDetailProps> {
   render() {
     return this.props.selectedCharacter ? (
       <div className="character-detail-panel">
