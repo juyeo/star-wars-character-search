@@ -4,11 +4,13 @@ import "../../App.css";
 import { StoreModel, StarWarsCharacter } from "../../models";
 
 const mapStateToProps = function(state: StoreModel) {
-  return state;
+  if (state.selectedCharacter) {
+    return { selectedCharacter: state.selectedCharacter };
+  }
 };
 
 interface CharacterDetailProps {
-  selectedCharacter: StarWarsCharacter | null;
+  selectedCharacter: StarWarsCharacter;
 }
 
 class CharacterDetailPanel extends React.Component<CharacterDetailProps> {

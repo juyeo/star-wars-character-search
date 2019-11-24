@@ -8,7 +8,6 @@ import { StoreModel } from "../models";
 
 const initialState: StoreModel = {
   characters: [],
-  selectedCharacter: null,
   isSearching: false
 };
 
