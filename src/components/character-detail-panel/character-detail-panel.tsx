@@ -8,7 +8,7 @@ const mapStateToProps = function(state: StoreModel) {
 };
 
 interface CharacterDetailProps {
-  selectedCharacter: StarWarsCharacter | null;
+  selectedCharacter?: StarWarsCharacter;
 }
 
 class CharacterDetailPanel extends React.Component<CharacterDetailProps> {
