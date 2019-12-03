@@ -1,5 +1,6 @@
 import axios from "axios";
 import { StarWarsCharacter } from "../models";
+import { Dispatch } from "redux";
 
 /* action types */
 
@@ -38,7 +39,9 @@ export const setIsSearching = (isSearching: boolean): SetIsSearching => ({
 
 // async await == try catch
 // the fn that getCharacters returns, takes in a dispatch
-export const getCharacters = (search?: string) => async (dispatch: any) => {
+export const getCharacters = (search?: string) => async (
+  dispatch: Dispatch
+): Promise<void> => {
   try {
     dispatch(setIsSearching(true));
     const url = search

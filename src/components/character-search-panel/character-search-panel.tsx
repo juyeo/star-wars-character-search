@@ -5,29 +5,32 @@ import "../../App.css";
 import { StoreModel, StarWarsCharacter } from "../../models";
 import CharacterButton from "./character-button";
 import PulseLoader from "react-spinners/PulseLoader";
+import { AnyAction, Dispatch, bindActionCreators } from "redux";
 
 const mapStateToProps = function(state: StoreModel) {
-  return state;
+  return {
+    characters: state.characters,
+    isSearching: state.isSearching
+  };
 };
 
-const mapDispatchToProps = {
-  getCharacters
-};
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
+  bindActionCreators({ getCharacters }, dispatch);
 
-class CharacterSearchPanel extends React.Component<any> {
+type Props = ReturnType<typeof mapDispatchToProps> &
+  ReturnType<typeof mapStateToProps>;
+class CharacterSearchPanel extends React.Component<Props> {
   componentDidMount() {
     this.props.getCharacters();
   }
 
   render() {
     const characterButtons: JSX.Element[] =
-      this.props.characters.length > 0 ? (
-        this.props.characters.map((character: StarWarsCharacter) => {
-          return <CharacterButton character={character} />;
-        })
-      ) : (
-        <div>No characters found</div>
-      );
+      this.props.characters.length > 0
+        ? this.props.characters.map((character: StarWarsCharacter) => {
+            return <CharacterButton character={character} />;
+          })
+        : [<div>No characters found</div>];
 
     const spinner = (
       <div>
